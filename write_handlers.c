@@ -31,8 +31,8 @@ if (flags & F_MINUS)
 return (write(1, &buffer[0], 1) +
 write(1, &buffer[BUFF_SIZE - i - 1], width - 1));
 else
-return (write(1, &buffer[BUFF_SIZE - i - 1], width - 1) +
-write(1, &buffer[0], 1));
+return (write(1, &buffer[BUFF_SIZE - i - 1], width - 1)
++ write(1, &buffer[0], 1));
 }
 return (write(1, &buffer[0], 1));
 }
@@ -176,7 +176,7 @@ return (write(1, &buffer[ind], length));
 * @buffer: Arrays of chars
 * @ind: Index at which the number starts in the buffer
 * @length: Length of number
-* @width: Width specifier 
+* @width: Width specifier
 * @flags: Flags specifier
 * @padd: Char representing the padding
 * @extra_c: Char representing extra char
